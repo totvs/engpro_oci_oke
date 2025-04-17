@@ -34,6 +34,7 @@ resource "oci_containerengine_node_pool" "node_pool" {
 
     cluster_id = oci_containerengine_cluster.cluster.id
     compartment_id = var.compartment_id
+    node_metadata = var.node_metadata
     
     kubernetes_version = each.value.kubernetes_version
     name = each.value.name
