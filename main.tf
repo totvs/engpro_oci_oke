@@ -51,8 +51,9 @@ resource "oci_containerengine_node_pool" "node_pool" {
     node_source_details {
         image_id = each.value.node_source_details.image_id
         source_type = each.value.node_source_details.source_type
-
+        boot_volume_size_in_gbs = each.value.node_source_details.boot_volume_size_in_gbs
     }
+
     node_shape_config {
         memory_in_gbs = each.value.node_shape_config.memory_in_gbs
         ocpus = each.value.node_shape_config.ocpus
