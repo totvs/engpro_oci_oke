@@ -20,3 +20,6 @@ variable "cluster_options" {
 variable "node_pool" {
   description = ""
 }
+variable "node_metadata" {
+  description = ""
+}
