@@ -39,6 +39,8 @@ resource "oci_containerengine_node_pool" "node_pool" {
     kubernetes_version = each.value.kubernetes_version
     name = each.value.name
     node_shape = each.value.node_shape
+
+    initial_node_labels = each.value.initial_node_labels
  
     node_config_details {
         placement_configs {
