@@ -40,7 +40,13 @@ resource "oci_containerengine_node_pool" "node_pool" {
     name = each.value.name
     node_shape = each.value.node_shape
 
-    initial_node_labels = each.value.initial_node_labels
+    dynamic "initial_node_labels" {
+      for_each = try(each.value.initial_node_labels, {})
+      content {
+        key   = initial_node_labels.key
+        value = initial_node_labels.value
+      }
+    }
  
     node_config_details {
         placement_configs {
